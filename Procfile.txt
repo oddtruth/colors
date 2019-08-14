@@ -1,1 +1,1 @@
-web: java src/colors/TwitterColors.java
+web: java -cp target/classes:target/dependency/* TwitterColors
