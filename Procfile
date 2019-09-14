@@ -1,1 +1,1 @@
-web: java -cp target/classes/colors/:target/dependency/* colors.TwitterColors
+web: java -cp target/classes/:target/dependency/* colors.TwitterColors
