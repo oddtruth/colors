@@ -12,10 +12,10 @@ import twitter4j.api.*;
 
 public class TwitterColors {
 	
-	static final String CONSUMER_KEY = "uG5jgrYDk3ZkbCDqmelKMLiWC";
-	static final String CONSUMER_SECRET = "iQAxE6RZ9a1Gy0Umb48VIdXXdCYWhjGRWlvApBXPXhMK5VVR4w";
-	static final String ACCESS_TOKEN = "1148021484180426752-LepkuPW5IpSGueukddr7HnTNhYCsmw";
-	static final String ACCESS_TOKEN_SECRET = "mfjSpxAyMJPG0yNMMAdaAOV570xqEzLOviAadoO7CcYBN";
+	static final String CONSUMER_KEY = System.getenv("CONSUMER_KEY");
+	static final String CONSUMER_SECRET = System.getenv("CONSUMER_SECRET");
+	static final String ACCESS_TOKEN = System.getenv("ACCESS_TOKEN");
+	static final String ACCESS_SECRET = System.getenv("ACCESS_SECRET");
 	
 	private static String imagePath = "image.png";
 	
@@ -43,7 +43,7 @@ public class TwitterColors {
 		setup();
 		//buildImage(imagePath);
 		//tweetMedia(imagePath);
-		t.schedule(daily, 0l, 1000*60*60*24);
+		t.schedule(daily, 0l, 1000*60*60);
 	}
 	
 	public static void setup() {
@@ -52,7 +52,7 @@ public class TwitterColors {
 		cb.setOAuthConsumerKey(CONSUMER_KEY);
 		cb.setOAuthConsumerSecret(CONSUMER_SECRET);
 		cb.setOAuthAccessToken(ACCESS_TOKEN);
-		cb.setOAuthAccessTokenSecret(ACCESS_TOKEN_SECRET);
+		cb.setOAuthAccessTokenSecret(ACCESS_SECRET);
 		
 		TwitterFactory tf = new TwitterFactory(cb.build());
 		
