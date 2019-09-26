@@ -43,7 +43,7 @@ public class TwitterColors {
 		setup();
 		//buildImage(imagePath);
 		//tweetMedia(imagePath);
-		t.schedule(daily, 0l, 1000*60*60);
+		t.schedule(daily, 0l, 1000*60*60*12);
 	}
 	
 	public static void setup() {
