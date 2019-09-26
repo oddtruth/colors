@@ -25,7 +25,7 @@ public class TwitterColors {
 	
 	public static Timer t = new Timer();
 	
-	public static TimerTask hourly = new TimerTask() {
+	public static TimerTask daily = new TimerTask() {
 		@Override 
 		public void run() {
 			try {
@@ -43,7 +43,7 @@ public class TwitterColors {
 		setup();
 		//buildImage(imagePath);
 		//tweetMedia(imagePath);
-		t.schedule(hourly, 0l, 1000*60);
+		t.schedule(daily, 0l, 1000*60*60*24);
 	}
 	
 	public static void setup() {
