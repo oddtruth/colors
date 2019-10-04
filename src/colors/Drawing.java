@@ -45,13 +45,13 @@ public class Drawing extends Canvas {
 		
 		image = new BufferedImage(canvas.getWidth(), canvas.getHeight(),  BufferedImage.TYPE_INT_RGB);		
 		
+
 	}
 	
 	
 	public void paint(Graphics g) {
 		imgColor = col.randColor();
 		triangles(g, 100, imgColor);	
-		
 	}
 	
 	
@@ -160,6 +160,10 @@ public class Drawing extends Canvas {
 		
 		int shift = (width / scale) * 2;
 		
+		
+		Color col1 = col.randColor();
+		Color col2 = col.randColor();
+		
 		ArrayList<Point> points = createPoints3(width, height, scale);
 				
 		
@@ -177,8 +181,8 @@ public class Drawing extends Canvas {
 			
 			if(tempPoints[0].getX() < tempPoints[2].getX()) {
 				CoordArray ca = pointConvert(tempPoints);
-				g.setColor(col.randTint2(c));
-				//g.setColor(col.randColor());
+				g.setColor(col.gradient(col1, col2, tempPoints[0].getX(), tempPoints[0].getY()));
+				//g.setColor(col.randTint2(c));
 				g.fillPolygon(ca.getXarray(), ca.getYarray(), 3);
 			}
 			
@@ -189,7 +193,9 @@ public class Drawing extends Canvas {
 				tempPoints[2] = points.get(i + shift + 1);
 				
 				CoordArray ca2 = pointConvert(tempPoints);
-				g.setColor(col.randTint2(c));
+				g.setColor(col.gradient(col1, col2, tempPoints[0].getX(), tempPoints[0].getY()));
+
+				//g.setColor(col.randTint2(c));
 				g.fillPolygon(ca2.getXarray(), ca2.getYarray(), 3);
 				
 				
@@ -197,13 +203,14 @@ public class Drawing extends Canvas {
 				tempPoints[0] = points.get(i + 2); //just gotta change one of the points
 				
 				ca2 = pointConvert(tempPoints);
-				g.setColor(col.randTint2(c));
+				g.setColor(col.gradient(col1, col2, tempPoints[0].getX(), tempPoints[0].getY()));
+				
+				//g.setColor(col.randTint2(c));
 				g.fillPolygon(ca2.getXarray(), ca2.getYarray(), 3);
 				
 				
 			}
-			
-			
+				
 		}
 		
 	}

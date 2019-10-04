@@ -113,6 +113,31 @@ public class Colors {
 	    return color;
 	}
 	
+
+	public Color gradient(Color c1, Color c2, double x, double y) {
+		
+		int r1 = c1.getRed();
+		int g1 = c1.getGreen();
+		int b1 = c1.getBlue();
+		
+		int r2 = c2.getRed();
+		int g2 = c2.getGreen();
+		int b2 = c2.getBlue();
+		
+		int dr = r2 - r1;
+		int dg = g2 - g1;
+		int db = b2 - b1;
+		
+		int sum = (int) Math.round(x + y);
+		
+		Color c3 = new Color(r1 + Math.round(dr * (sum/2800f)),
+							g1 + Math.round(dg * (sum/2800f)),
+							b1 + Math.round(db * (sum/2800f)));
+		
+		return randTint2(c3);
+		
+	}
+	
 	
 }
 
