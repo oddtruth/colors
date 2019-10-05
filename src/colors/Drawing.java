@@ -1,6 +1,7 @@
 package colors;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -13,6 +14,8 @@ import java.awt.Point;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 
 public class Drawing extends Canvas {
@@ -37,9 +40,17 @@ public class Drawing extends Canvas {
 		JFrame frame = new JFrame("My Drawing");
 		canvas = new Drawing();
 		canvas.setSize(1600, 1200);
+		JPanel panel = new JPanel();
+
 		frame.add(canvas);
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
+		
+		//Container c = frame.getContentPane();
+		//JScrollPane scroll = new JScrollPane( c );
+		//frame.setContentPane(scroll);		
 		
 		imgColor = col.randColor();
 		
@@ -63,8 +74,9 @@ public class Drawing extends Canvas {
 			
 			File imageFile = new File(path);
 			
-			imageCrop = image.getSubimage(200, 200, 1200, 800);
-			
+			//imageCrop = image.getSubimage(200, 200, 1200, 800);
+			imageCrop = image.getSubimage(100, 100, 1400, 1000);
+
 			
 			try {
 				ImageIO.write(imageCrop, "png", imageFile);
