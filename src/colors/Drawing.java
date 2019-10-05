@@ -75,7 +75,7 @@ public class Drawing extends Canvas {
 			File imageFile = new File(path);
 			
 			//imageCrop = image.getSubimage(200, 200, 1200, 800);
-			imageCrop = image.getSubimage(100, 100, 1400, 1000);
+			imageCrop = image.getSubimage(150, 100, 1300, 1000);
 
 			
 			try {
